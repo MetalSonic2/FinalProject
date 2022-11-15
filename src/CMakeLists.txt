@@ -1,0 +1,11 @@
+#add_library(shaderlib shader.cpp shaderprogram.cpp)
+include_directories(${PROJECT_SOURCE_DIR}/inc/)
+add_library(windowlib window.cpp)
+add_library(renderlib renderer.cpp)
+add_library(gamelib game.cpp)
+# target_link_directories(shaderlib PUBLIC ${PROJECT_SOURCE_DIR}/inc/)
+
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
+set(RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/inc/)
