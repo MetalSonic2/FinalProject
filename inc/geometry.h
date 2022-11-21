@@ -13,9 +13,7 @@ public:
     /*
         Iterpolates the curve between t = 0 and t = 1
     */
-    glm::vec3 operator [] (float t){
-
-    }
+    glm::vec3 operator [] (float t);
 };
 
 

@@ -4,11 +4,10 @@
 #include "renderer.h"
 
 
-struct Game{
-    Renderer renderer;
-    Window window;    
-
+struct Game : public Renderer {
     int init();
+
+    void display_func();
 };
 
 #endif
