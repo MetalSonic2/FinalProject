@@ -131,6 +131,14 @@ int Renderer::GL_load_obj(const char *objName, std::vector<glm::vec3> verts, std
     glGenBuffers(7, &obj.VBO[0]);
     glGenBuffers(7, &obj.EBO[0]);
 
+	glBindVertexArray(obj.VAO);
+	glBindBuffer( GL_ARRAY_BUFFER, obj.VBO[0]);
+	glBufferData( GL_ARRAY_BUFFER, verts.size() * sizeof(glm::vec3), &verts[0], GL_STATIC_DRAW );
+	glVertexAttribPointer( 0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof( float ), (void*)0 );
+	glEnableVertexAttribArray( 0 );
+	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, obj.EBO[0]);
+    glBufferData( GL_ELEMENT_ARRAY_BUFFER, index_vertices.size() * sizeof(int), &index_vertices[0], GL_STATIC_DRAW);
+
     return 0;
 }
 
