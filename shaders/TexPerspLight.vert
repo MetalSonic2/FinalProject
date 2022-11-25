@@ -1,17 +1,22 @@
 #version 400
 
-layout(location=0) in vec3 in_vert;
-layout(location=1) in vec3 in_norm;
-layout(location=2) in vec2 in_tex;
-layout(location=3) in mat4 in_model_matrix;
+layout(location=0) in vec3 in_Position;
+layout(location=1) in vec3 in_Normal;
+layout(location=2) in vec2 in_TexCoord;
 
-layout(location=0) in vec3 in_vert;
-layout(location=1) in vec3 in_norm;
-layout(location=2) in vec2 in_tex;
+out vec3 vert_Pos;
+out vec3 vert_Normal;
+out vec2 vert_TexCoord;
 
-uniform mat4 persp_matrix;
-uniform mat4 view_matrix;
+uniform mat4 projectionMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 modelMatrix;
 
-int main(){
-
+void main(void)
+{
+	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4( in_Position.xyz, 1.0 );
+	
+	vert_Pos    = in_Position;
+	vert_Normal = in_Normal;
+	vert_TexCoord = in_TexCoord;
 }

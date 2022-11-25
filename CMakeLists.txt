@@ -17,9 +17,9 @@ add_executable(${PROJECT_NAME} main.cpp)
 
 if (WIN32)
 target_link_libraries(${PROJECT_NAME} gamelib windowlib renderlib playerlib gameobjlib intersectionlib
-                                    geometrylib zombielib resourcelib gunlib opengl32 glew32 freeglut)
+                                    geometrylib zombielib resourcelib gunlib shaderlib opengl32 glew32 freeglut)
 endif(WIN32)
 if(UNIX)
 target_link_libraries(${PROJECT_NAME} gamelib windowlib renderlib playerlib gameobjlib intersectionlib
-geometrylib zombielib resourcelib gunlib GL GLU glut GLEW)
+geometrylib zombielib resourcelib gunlib shaderlib GL GLU glut GLEW)
 endif(UNIX)

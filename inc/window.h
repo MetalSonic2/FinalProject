@@ -2,24 +2,30 @@
 #define WINDOW_H
 
 #include <GL/freeglut.h>
+#include <glm/glm.hpp>
 
 struct Window{
     int width, height;
+
+    glm::vec2 prev_mouse_pos;
+    int mouse_states[4];
+    int kbd_states[256];
         
-    void (*display_func )();
-    void (*idle_func) ();
-    void (*reshape_func )(int w, int h);
-    void (*keyboard_func )(unsigned char c, int x, int y);
-    void (*key_released )(unsigned char c, int x, int y);
-    void (*key_special_pressed )(int c, int x, int y);
-    void (*key_special_released )(int c, int x, int y);
-    void (*mouse_func )(int button, int state, int x, int y);
-    void (*active_motion_func )(int x, int y);
-    void (*passive_motion_func )(int x, int y);
+    virtual void display_func();
+    virtual void idle_func();
+    virtual void reshape_func(int w, int h);
+    virtual void keyboard_func(unsigned char c, int x, int y);
+    virtual void key_released(unsigned char c, int x, int y);
+    virtual void key_special_pressed(int c, int x, int y);
+    virtual void key_special_released(int c, int x, int y);
+    virtual void mouse_func(int button, int state, int x, int y);
+    virtual void active_motion_func(int x, int y);
+    virtual void passive_motion_func(int x, int y);
 
 // successfully initializing a window will set it to active window
     int init_window(int w, int h); 
-
+    void window_begin();
+    virtual ~Window(){};
 };
 
 void __display_func ();

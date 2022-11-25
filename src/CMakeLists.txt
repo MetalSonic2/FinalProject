@@ -1,4 +1,4 @@
-#add_library(shaderlib shader.cpp shaderprogram.cpp)
+add_library(shaderlib shader.cpp shaderprogram.cpp)
 add_library(windowlib window.cpp)
 add_library(renderlib renderer.cpp)
 add_library(gamelib game.cpp)
