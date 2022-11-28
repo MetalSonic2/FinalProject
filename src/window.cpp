@@ -17,6 +17,7 @@ int Window::init_window(int w, int h){
     for(int i = 0; i < 256; i++) kbd_states[i] = false;
 	glutCreateWindow( "CSE-170 Computer Graphics" );
     printf("creating window!\n");
+    
 	GLenum ret = glewInit();
 	if( ret != GLEW_OK ) {
 		printf("GLEW initialization error.\n");
@@ -47,8 +48,6 @@ int Window::init_window(int w, int h){
 void Window::window_begin(){
 	glutMainLoop();
 }
-
-
 
 void Window::display_func(){
 }
@@ -110,7 +109,6 @@ void __reshape_func (int w, int h){
     }
     glViewport( 0, 0, w, h );
 	glutPostRedisplay();
-
 }
 void __keyboard_func (unsigned char c, int x, int y){
     if(ACTIVE_WINDOW){
@@ -148,6 +146,3 @@ void __passive_motion_func (int x, int y){
         ACTIVE_WINDOW->passive_motion_func(x, y);
     }
 }
-
-
- 

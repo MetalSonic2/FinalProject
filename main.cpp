@@ -8,12 +8,11 @@
 #include <game.h>
 #include <stdio.h>
 
-
 int main(int argc, char **argv){
-    glutInit(&argc, argv);
-    Game g;
+  glutInit(&argc, argv);
+  Game g;
 	int ret = g.init();
-	printf("Hello!\n");
+  // printf("Hello!\n");
 	return ret;
 
 }

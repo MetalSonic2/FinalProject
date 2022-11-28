@@ -1,6 +1,5 @@
 #ifndef WINDOW_H
 #define WINDOW_H
-
 #include <GL/freeglut.h>
 #include <glm/glm.hpp>
 

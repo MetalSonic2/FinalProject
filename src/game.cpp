@@ -116,4 +116,5 @@ void Game::tick(){
     if(kbd_states['s']) position -= speed * glm::normalize(direction);
     if(kbd_states['a']) position -= speed * glm::normalize(glm::cross(direction, glm::vec3(0,1,0)));
     if(kbd_states['d']) position += speed * glm::normalize(glm::cross(direction, glm::vec3(0,1,0)));
+
 }
