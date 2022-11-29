@@ -28,10 +28,14 @@ class GameObject{
     glm::vec3 velocity;
 
 public:
+    GameObject();
+    GameObject(GL_Obj);
     void teleport(glm::vec3 pos, glm::vec3 front, glm::vec3 up);
     void move(float t);
     void draw(ShaderProgram shader);
-    GameObject(GL_Obj);
+    void setVelocity(glm::vec3 vel);
+    glm::vec3 getVelocity();
+    
 };
 
 #endif

@@ -8,7 +8,13 @@ void GameObject::teleport(glm::vec3 pos, glm::vec3 front, glm::vec3 up){
     this->up = up;
 }
 void GameObject::move(float t){
-
+    pos += (velocity * t);
+}
+void GameObject::setVelocity(glm::vec3 vel){
+    velocity = vel;
+}
+glm::vec3 GameObject::getVelocity(){
+    return velocity;
 }
 void GameObject::draw(ShaderProgram shader){
     glm::mat4 model_matrix(1);
@@ -25,3 +31,4 @@ GameObject::GameObject(GL_Obj gl_obj){
     this->front = glm::vec3(1,0,0);
     this->up = glm::vec3(0,1,0);
 }
+GameObject::GameObject(){}

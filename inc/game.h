@@ -9,6 +9,7 @@
 #include "shader.h"
 #include "shaderprogram.h"
 #include "renderer.h"
+#include "player.h"
 #include <chrono>
 #include <thread>
 #include <future>
@@ -25,6 +26,7 @@ struct Game : public Renderer {
     void start_timer(int us);
     
 public:
+    Player player;
     void timer(int us);
     void tick();
 };

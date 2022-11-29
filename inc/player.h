@@ -5,10 +5,13 @@
 #include <gun.h>
 
 class Player : public GameObject{
+    const float maxHealth = 100;
     Gun active, inactive;
-
     float health;
+    float armor;
+
 public:
+    Player();
     void swap_weapon();
     void shoot();
     void reload();
