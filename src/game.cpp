@@ -114,20 +114,20 @@ void Game::timer(int us){
 void Game::tick(){
 
     if(kbd_states['w']){
-        player.setVelocity(glm::normalize(direction));
-        player.getVelocity();
+         player.setVelocity(speed * glm::normalize(direction));
+        position += player.getVelocity();
     } 
     if(kbd_states['s']){
-        player.setVelocity(-glm::normalize(direction));
-        player.getVelocity();
+        player.setVelocity(speed * glm::normalize(direction));
+        position -= player.getVelocity();
     } 
     if(kbd_states['a']){
-        player.setVelocity(-glm::normalize(glm::cross(direction, glm::vec3(0,1,0))));
-        player.getVelocity();
+        player.setVelocity(speed * glm::normalize(glm::cross(direction, glm::vec3(0,1,0))));
+        position -= player.getVelocity();
     } 
     if(kbd_states['d']){
-        player.setVelocity(glm::normalize(glm::cross(direction, glm::vec3(0,1,0))));
-        player.getVelocity();
+        player.setVelocity(speed * glm::normalize(glm::cross(direction, glm::vec3(0,1,0))));
+        position += player.getVelocity();
     } 
 
 }
