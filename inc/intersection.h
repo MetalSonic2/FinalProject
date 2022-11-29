@@ -23,7 +23,7 @@ float Ray_Face_intersect(Ray ray, Face face);
         -1                  : there is no intersection
         0-6                 : the nearest plane of the box hit by the ray.
 */
-int Ray_Face_intersect(Ray ray, Hitbox box);
+int Ray_Box_intersect(Ray ray, Hitbox box);
 
 
 /*
@@ -35,6 +35,11 @@ int Ray_Face_intersect(Ray ray, Hitbox box);
         -1                  : there is no intersection
         non-negative number : the distance along the direction for the ray to intersect
 */
-float Ray_Face_intersect(Ray ray, Sphere sphere);
+float Ray_Sphere_intersect(Ray ray, Sphere sphere);
+
+bool Plane_Plane(Face P1, Face P2);
+
+bool Box_Plane(Hitbox box, Face plane);
+
 
 #endif
