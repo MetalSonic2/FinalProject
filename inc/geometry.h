@@ -18,7 +18,10 @@ public:
 
 
 /*
-    A Face should be 4 coplanar points.
+    A Face should be 4 coplanar points
+    A-C
+    | |
+    B-D 
 */
 struct Face{
     glm::vec3 A, B, C, D;
